@@ -1,0 +1,57 @@
+---
+title: "p8105_hw1_mb5357"
+author: "Maria Beg"
+date: "2025-09-18"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(moderndive)
+
+```
+
+## Loading the dataset
+
+```{r}
+
+data("early_january_weather")
+
+```
+
+## Decription of the dataset
+
+Used View() to look at the dataset. 
+
+There are 15 variables in this dataset.
+
+Variables in the dataset are `origin`, `year`, `month`, `day`, `hour`, `temp`, `dewp`, `humid`, `wind_dir`, `wind_speed`, `wind_gust`, `precip`, `pressure`, `visib`, and `time_hour`.
+
+The important variables:
+
+`temp` = The temperature in Fahrenheit
+
+`humid` = The relative humidity
+
+`time_hour` = Date and Hour when each observation was recorded
+
+
+## Size of the dataset
+
+```{r}
+
+num_rows <- nrow(early_january_weather)
+
+num_cols <- ncol(early_january_weather)
+
+mean_temp <- mean(pull(early_january_weather, temp))
+
+```
+
+The number of rows is `r num_rows` and the number of columns is `r num_cols` in the dataset.
+
+The mean temp is `r round(mean_temp, 2)`.
+
+
+
