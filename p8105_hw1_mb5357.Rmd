@@ -61,4 +61,24 @@ mean_temp <- mean(pull(early_january_weather, temp))
 The mean temp is `r round(mean_temp, 2)`.
 
 
+## Scatterplot of `temp` v/s `time_hour`
+
+```{r}
+
+ggplot(early_january_weather, 
+       aes(x = time_hour, 
+           y = temp, 
+          color = humid)) +
+          geom_point() +
+  labs(
+    title = "Temperature vs Time in Early January",
+    x = "Time (hour)",
+    y = "Temperature (F)",
+    color = "Humidity"
+  )
+
+
+```
+
+The temperature fluctuates during the day and night. We see that humidity increases around mid January.
 
