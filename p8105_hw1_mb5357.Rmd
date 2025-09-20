@@ -113,4 +113,22 @@ sample_df = tibble(
 ```
 
 
+## Taking the mean of each Variable
+
+```{r}
+
+mean_num <- mean(pull(sample_df, sample))
+
+mean_greater_than_0 <- mean(pull(sample_df, sample_greater_than_0))
+
+mean_char <- mean(pull(sample_df, chr_vec))
+
+mean_fac <- mean(pull(sample_df, fac_vec))
+
+```
+
+The mean works for the numeric vector and the logical vector. However, the mean fails for the character and factor vectors, producing a warning message and returning NA.
+
+
+
 
