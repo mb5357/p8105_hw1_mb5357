@@ -12,6 +12,9 @@ library(moderndive)
 
 ```
 
+## PROBLEM 1
+
+
 ## Loading the dataset
 
 ```{r}
@@ -80,5 +83,34 @@ ggplot(early_january_weather,
 
 ```
 
-The temperature fluctuates during the day and night. We see that humidity increases around mid January.
+The scatterplot shows that temperature fluctuates over time, likely reflecting daily cycles. Humidity values appear to increase around mid-January, suggesting a shift in weather conditions during that period.
+
+## Saving the scatterplot
+
+```{r}
+
+ggsave("p1805_hw1_mb5357_scatterplot.pdf")
+
+```
+
+
+## PROBLEM 2
+
+
+## Creating a dataframe
+
+```{r}
+
+samp <- rnorm(10)
+
+sample_df = tibble(
+  sample = samp,
+  sample_greater_than_0 = sample > 0,
+  chr_vec =  rep(c("red", "blue","yellow", "green", "purple"), length.out = 10),
+  fac_vec = factor(rep(c("A", "B", "C"), length.out = 10))
+)
+
+```
+
+
 
