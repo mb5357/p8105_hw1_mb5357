@@ -75,7 +75,7 @@ ggplot(early_january_weather,
           geom_point() +
   labs(
     title = "Temperature vs Time in Early January",
-    x = "Time (hour)",
+    x = "Time (Hour)",
     y = "Temperature (F)",
     color = "Humidity"
   )
@@ -127,8 +127,28 @@ mean_fac <- mean(pull(sample_df, fac_vec))
 
 ```
 
-The mean works for the numeric vector and the logical vector. However, the mean fails for the character and factor vectors, producing a warning message and returning NA.
+The mean works for the numeric vector and the logical vector. However, the mean fails for the character and factor vectors, producing a warning message and returning `NA`.
 
 
+## Applying the as.numeric function
 
 
+```{r echo = TRUE, results = 'hide'}
+
+as.numeric(pull(sample_df, sample_greater_than_0))
+
+as.numeric(pull(sample_df, chr_vec))
+
+as.numeric(pull(sample_df, fac_vec))
+
+```
+
+Applying `as.numeric()` reveals how R represents these types numerically:
+
+Logical: Converts to `1` `(TRUE)` or `0` `(FALSE)`. This is why `mean()` works — it averages these numeric values.
+
+Character: Fails to convert (results in `NA`), so `mean()` cannot compute a meaningful average.
+
+Factor: Returns integer codes representing factor levels. While `mean()` fails on the factor itself, `mean(as.numeric(fac))` would compute the average of these underlying codes.
+
+This clarifies the implicit coercion `mean()` attempts and why it succeeds or fails.
